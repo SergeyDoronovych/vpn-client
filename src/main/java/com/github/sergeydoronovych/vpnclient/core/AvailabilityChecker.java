@@ -10,8 +10,8 @@ import static com.github.sergeydoronovych.vpnclient.security.ApiConstants.GET_IP
 public class AvailabilityChecker {
     private final Client httpClient;
 
-    public AvailabilityChecker(Client httpClient) {
-        this.httpClient = httpClient;
+    public AvailabilityChecker() {
+        this.httpClient = new Client();
     }
 
     public boolean isProxyAvailable(InetSocketAddress proxyAddress, String login, String password) {
