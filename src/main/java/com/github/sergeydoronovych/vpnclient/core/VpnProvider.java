@@ -10,7 +10,11 @@ public interface VpnProvider {
         return getServers().stream().filter(serverInfo -> serverInfo.getLocation().getCountry().equals(country)).collect(Collectors.toList());
     }
 
-    default List<String> getCountries(){
+    default List<ServerInfo> getServers(String country, boolean proxy) {
+        return getServers().stream().filter(serverInfo -> serverInfo.getLocation().getCountry().equals(country) && serverInfo.getFeatures().isProxy() == proxy).collect(Collectors.toList());
+    }
+
+    default List<String> getCountries() {
         return getServers().stream().map(ServerInfo::getLocation).map(ServerInfo.Location::getCountry).collect(Collectors.toList());
     }
 }
