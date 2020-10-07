@@ -67,6 +67,7 @@ public class NordServerInfo {
         location.setCountry(this.getCountry());
         location.setX(this.getLocation().getX());
         location.setX(this.getLocation().getY());
+        serverInfo.setLocation(location);
 
         ServerInfo.Features features = new ServerInfo.Features();
         features.setSocks(this.getFeatures().isSocks());
